@@ -1,0 +1,121 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Croissant+One&family=Fuggles&family=Karla:wght@400;700&family=Lexend+Deca&display=swap');
+
+*{
+    
+    
+   
+}
+
+#Nav{
+   
+    color: black;
+}
+#Nav h1, #brand{
+    text-align: center;
+    font-family: 'Fuggles', cursive;
+    font-size: 50px;
+    font-weight: bolder;
+    color: #bb3c5a;
+}
+
+
+/* #brand{
+    margin-right: 100px;
+} */
+
+
+#Nav i{
+    font-size: 1.5em;
+}
+#nav span{
+    color: #bb3c5a;
+    background-color: #bb3c5a;
+}
+#right-nav{
+    list-style-type: none;
+}
+
+h1{
+    font-family: 'Fuggles', cursive;
+}
+#sec1, #sec2{
+    max-height: 500px;
+   
+}
+
+#sec1 img, #sec2 img{
+    min-width: 220px;
+    
+    overflow: hidden;
+
+}
+#sec1 h2, #sec2 h2{
+    color: #bb3c5a;
+}
+#sec1 .d-text{
+    background-image: url(../images/brandy3.jpg);
+    background-repeat: no-repeat;
+    background-position:  center center;
+    background-size: contain;
+
+}
+#sec2 .d-text{
+    background-image: url(../images/brandy3.jpg);
+    background-repeat: no-repeat;
+    background-position:  center center;
+    background-size: contain;
+}
+#sec1  button, #sec2  button{
+    border: none;
+    background-color: #f0d211;
+    font-weight: bold;
+    border-radius: 10px;
+    color:#e71748;
+}
+#sec1 button:hover, #sec2 button:hover{
+
+    
+    background-color:#e71748;
+    color:#c4b44d;
+    animation:backwards;
+    
+}
+ 
+
+#items{
+    display: flex;
+}
+
+
+#footer{
+    background-color: #ebd651;
+}
+
+#Newsletter input{
+    width: 80%;
+    height: 40px;
+    border: #ebd651 solid 2px;
+    border-radius: 9px;
+}
+#Newsletter button{
+    height: 35px;
+    border: none;
+    background-color: #bb3c5a;
+    font-weight: bold;
+    border-radius: 10px;
+    color:#c4b44d;
+
+}
+#Newsletter button:hover{
+
+    
+    background-color:#c4b44d;
+    color:#bb3c5a;
+    animation:backwards;
+    
+}
+#about ul{
+    list-style-type: none;
+}
