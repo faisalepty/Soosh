@@ -1,0 +1,74 @@
+<header>         
+    <nav id="Nav" class="navbar fixed-top navbar-light bg-light">
+      <div class="container-fluid">
+        
+         
+          <!-- navbar toggler button -->
+          
+        <button class="navbar-toggler text-dark d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <h1 id="brandname" class="navbar-brand" style="font-size: 1.5em; display: block;"><span>Soosh</h1>
+              <!-- search button -->
+          <div class="collapse" id="searchbar">
+            <form action="">
+
+              <div class="d-flex">
+              <input class="form-control" name="q" placeholder="Search for brand, color etc." type="search">
+              <button class=""><i class="bi bi-search" style="color: black;"></i></button>
+              </div>
+            </form>
+
+            </div>
+            <div class="d-none d-md-block " id="searchbar">
+              <form action="">
+              <div class="d-flex">
+              <input style="width:150%" class="form-control" name="r" placeholder="Search for brand, color etc." type="search">
+              <button class="bi bi-search"></button>
+              </div>
+            </form>
+
+          </div>
+            <button onclick="hideBrand()" id="searchbtn" class="btn-search d-md-none" type="button" data-bs-target="#searchbar" data-bs-toggle="collapse"></button>
+
+      
+          <!-- >md screen size nav -->
+            <div class="d-none d-md-block">
+              <ul class="nav p-3 d-flex ">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Blog</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Help</a>
+                  </li>                  
+                </ul>
+          </div>
+        
+        <!-- off canvas  -->
+        <div class="offcanvas offcanvas-end"  id="navbarToggleExternalContent">
+          <div class="offcanvas-header">
+              <div class="offcanvas-title" style="display: flex; justify-content: space-between align-items-center;">
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" style="margin-right: 100%; margin-top: 10px;"></button>
+                  <h1 class="text-end" id="" style="color: #bb3c5a;">Soosh</h1>                     
+              </div>
+              <hr>
+          </div>
+              <!-- menu items -->
+          <ul class="navbar-nav p-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Sneakers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Electronics</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Aparels</a>
+            </li>                  
+          </ul>
+        </div>
+      </div>
+    </nav>            
+</header>
