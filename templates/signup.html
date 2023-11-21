@@ -1,0 +1,54 @@
+{% load static %}
+{% include 'main.html' %}
+{% include 'nav.html' %}
+<body id="signup">
+    
+        <div id="signupForm">
+            <div class="d-flex">
+            <h6 id="signupButton">Sign Up</h6>
+    
+            <h6 id="loginButton">Login</h6>
+            </div>
+            <div class="d-flex">
+            <hr id="signupHr">
+            <hr id="loginHr" style="color: #e5e9ed;">
+            </div>
+    
+            <!-- signup form -->
+           <div id="signUpForm">
+            <form action="{% url 'signup' %}" method="POST">
+                
+                {% csrf_token %}
+                {{form.username}}
+                {{form.email}}
+                {{form.password1}}
+                {{form.password2}}    
+                <button type="submit" class="btn btn-dark">Sign Up</button>
+                <p>Already have an account? <a href="">Login</a></p>
+                {% for massage in messages %}
+                <p>{{ massage }}</p>
+                {% endfor %}
+                
+            </form>
+           </div>
+            <!-- login form -->
+            <div id="loginForm" class="d-none">
+                <form action="{% url 'login' %}" method="POST">
+                
+                    {% csrf_token %}
+                    <input name="username" type="text" placeholder="User Name">
+                    <input name="password1" type="Password" placeholder="Password">
+                    <button type="submit" class="btn btn-dark w-5">Login</button>
+                    <p>Don't have an account? <a href="">Signup</a></p>
+                    {% for massage in messages %}
+                    <p>{{ massage }}</p>
+                    {% endfor %}
+                </form>
+            </div>
+           
+        </div>  
+        {% include 'scripts.html' %}
+        <script src="{% static 'js/authforms.js'%}"></script> 
+</body>
+</html>
+

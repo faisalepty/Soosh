@@ -1,0 +1,68 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- products section -->
+    <section id="products">
+       
+        <div class="container-fluid me-md-5">
+            
+            <div class="d-flex justify-content-start">
+                <!-- products sec nav -->
+               {% include 'productsNav.html' %}
+
+                <!-- products -->
+                <div class="row g-0 overflow-hidden">
+                  <!-- breadcrumb -->
+                    <nav  class="d-sm-flex justify-content-between" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          
+                          {% if Filteredelectronics %}
+                          <li class="breadcrumb-item"><a href="{% url 'Home' %}">Home</a></li>
+                          <li class="breadcrumb-item" aria-current="page"><a href="{% url 'electronics' %}">Electronics</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">{{ q }}</li>
+                          {% else %}
+                          <li class="breadcrumb-item"><a href="{% url 'Home' %}">Home</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Electronics</li>
+                          {% endif %}
+                        </ol>
+                        <!-- filter button -->
+                             <div class="dropdown">
+                            <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                              Sort By: FEATURED
+                            </button>
+                            <ul id='filterMenu' class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                              <li><a class="dropdown-item" href="#">Action</a></li>
+                              <li><a class="dropdown-item" href="#">Another action</a></li>
+                              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                          </div>
+                          
+                      </nav>
+                    
+                      {% for product in products %}
+                      <div class="col-lg-3 col-md-4 col-6 my-1 d-flex align-items-strech">
+                          <div class="card" id="item" style="width:90%;">
+                              <img height="100%"  src="{{ product.pic.url }}" alt="" class="card-image-top">
+                              <div class="card-body d-flex-row align-items-center justify-content-end mb-0" style=>
+                                  <p class="card-text">
+                                      {{ product.name }}
+                                  </p>
+                                  <strong>
+                                      ${{ product.price }}
+                                  </strong>
+                              </div>
+                          </div>
+                      </div>
+                      {% endfor %}
+                </div> 
+            </div>      
+        </div>
+    </section>
+{% endblock content %}
+

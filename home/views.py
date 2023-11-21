@@ -1,6 +1,7 @@
 from django.shortcuts import render
+from django.contrib.auth.forms import UserCreationForm
 from django.db.models import Q
-from .models import Product
+from .models import Product, Category, Subcategory
 
 # Create your views here.
 
@@ -23,11 +24,11 @@ def Home(request):
     return render(request, 'home.html', context)
 
 def ShowSneakers(request):
-    allShoes = Product.objects.filter(subcategory__maincategory__name='Sneakers').distinct()
-
+    allShoes = Product.objects.filter(subcategory__maincategory__name='Sneakers')
+    categories = Subcategory.objects.filter(maincategory__name='Sneakers')
     # apply filters if exist
     q = request.GET.get('q') or request.GET.get('r') if request.GET.get('q') or request.GET.get('r') != None else ''
-
+    s = 's'
     FilteredShoes = Product.objects.filter(
         Q(name__icontains=q, subcategory__maincategory__name='Sneakers') |
         Q(variation__color__icontains=q, subcategory__maincategory__name='Sneakers')
@@ -37,15 +38,32 @@ def ShowSneakers(request):
     else:
         allShoes = Product.objects.filter(subcategory__maincategory__name='Sneakers')
 
-    context = {'products': allShoes}
-    return render(request, 'products.html', context)
+    context = {'products': allShoes, 'categories': categories, 'FilteredShoes': FilteredShoes, 'q': q, 's': s}
+    return render(request, 'sneakers.html', context)
 
 
 def ShowElectronics(request):
     allElectronics = Product.objects.filter(subcategory__maincategory__name='Electronics')
+    categories = Subcategory.objects.filter(maincategory__name='Electronics')
 
-   
-    context = {'products': allElectronics}
-    return render(request, 'products.html', context)
+    # apply filters if exist
+    q = request.GET.get('q') or request.GET.get('r') if request.GET.get('q') or request.GET.get('r') != None else ''
+    e = 'e'
+    Filteredelectronics = Product.objects.filter(
+        Q(name__icontains=q, subcategory__maincategory__name='Electronics') |
+        Q(variation__color__icontains=q, subcategory__maincategory__name='Electronics')
+    )
+    if Filteredelectronics:
+        allElectronics = Filteredelectronics
+    else:
+        allElectronics = Product.objects.filter(subcategory__maincategory__name='Electronics')
+    filter_multiples = []
+    for i in allElectronics:
+        if i not in filter_multiples:
+            filter_multiples.append(i)
+
+
+    context = {'products': filter_multiples, 'categories': categories, 'Filteredelectronics': Filteredelectronics, 'q': q, 'e': e}
+    return render(request, 'electronics.html', context)
 
 

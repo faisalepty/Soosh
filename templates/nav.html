@@ -1,3 +1,5 @@
+{% load static %}
+
 <header>         
     <nav id="Nav" class="navbar fixed-top navbar-light bg-light">
       <div class="container-fluid">
@@ -12,24 +14,24 @@
               <!-- search button -->
           <div class="collapse" id="searchbar">
             <form action="">
-
               <div class="d-flex">
               <input class="form-control" name="q" placeholder="Search for brand, color etc." type="search">
-              <button class=""><i class="bi bi-search" style="color: black;"></i></button>
+              <button id="searchbtn3" class="bg-light"><i class="bi bi-search" style="color: black;"></i></button>
               </div>
             </form>
 
             </div>
             <div class="d-none d-md-block " id="searchbar">
               <form action="">
-              <div class="d-flex">
-              <input style="width:150%" class="form-control" name="r" placeholder="Search for brand, color etc." type="search">
-              <button class="bi bi-search"></button>
+              <div class="d-flex justify-content-between">
+              <input style="width:150%; margin-right: 5px;" class="form-control" name="r" placeholder="Search for brand, color etc." type="search">
+              <button id="searchbtn3" class="bg-light"><i class="bi bi-search" style="color: black;"></i></button>
               </div>
             </form>
 
           </div>
-            <button onclick="hideBrand()" id="searchbtn" class="btn-search d-md-none" type="button" data-bs-target="#searchbar" data-bs-toggle="collapse"></button>
+            <button onclick="hideBrand()" id="searchbtn" class="btn-search d-md-none bg-light" type="button" data-bs-target="#searchbar" data-bs-toggle="collapse"><i class="bi bi-search"></i></button>
+            <button onclick="hideBrand()" id="searchbtn1" class="btn-close d-md-none bg-light" type="button" data-bs-target="#searchbar" data-bs-toggle="collapse" style="display: none;"></button>
 
       
           <!-- >md screen size nav -->
@@ -43,10 +45,24 @@
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Help</a>
-                  </li>                  
+                  </li>  
+                   <!-- auth btns  -->
+                   {% if request.user.is_authenticated %}
+                   <li class="nav-item">
+                   <a class="nav-link" href=""><span class="text-dark"> Hello </span>{{ request.user }}</a>
+                   </li>
+                   <li class="nav-item">
+                   <button class="btn btn-outline-dark"><a href="{% url 'logout'%}">Logout</a></button>
+                   </li>
+                   {% else %}
+                  <li>
+                      <button class="btn btn-outline-dark"><a href=>Login</a></button>
+                      <button class="btn btn-dark"><a href="{% url 'signup' %}">Sign Up</a></button>
+                     </li> 
+
+                    {% endif %}               
                 </ul>
           </div>
-        
         <!-- off canvas  -->
         <div class="offcanvas offcanvas-end"  id="navbarToggleExternalContent">
           <div class="offcanvas-header">
@@ -59,13 +75,13 @@
               <!-- menu items -->
           <ul class="navbar-nav p-3">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Sneakers</a>
+              <a class="nav-link active" aria-current="page" href="{% url 'sneakers' %}">Sneakers</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Electronics</a>
+              <a class="nav-link" href="{% url 'electronics' %}">Electronics</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Aparels</a>
+              <a class="nav-link" href="">Aparels</a>
             </li>                  
           </ul>
         </div>

@@ -1,13 +1,86 @@
-<aside class="d-none d-md-block ms-4">
-    <ul class="navbar-nav p-3">
+{% load static %}
+<aside id="sideNav" class="d-none d-md-block ">
+    <ul class="navbar-nav ps-4 pe-5 me-5">
+      {% if s %}
+        <li class="nav-item">
+          <a class="nav-link text-danger" href="{% url 'sneakers' %}">Sneakers</a>
+        </li>
+        {% else %}
         <li class="nav-item">
           <a class="nav-link active" href="{% url 'sneakers' %}">Sneakers</a>
         </li>
+        {% endif %}
+      {% if e %}
         <li class="nav-item">
-          <a class="nav-link" href="#">Electronics</a>
+          <a class="nav-link text-danger" href="{% url 'electronics' %}">Electronics</a>
         </li>
+        {% else %}
         <li class="nav-item">
-          <a class="nav-link" href="#">Aparels</a>
+          <a class="nav-link active" href="{% url 'electronics' %}">Electronics</a>
+        </li>
+        {% endif %}
+        <li class="nav-item">
+          <a class="nav-link" href="#">Apparels</a>
         </li>                  
       </ul>
+   
+     <ul>
+      {% for sub_cat in categories %}
+      {% if sub_cat.brand_subcat != None %}
+      <li class="nav-item"><a href="?r={{sub_cat.brand_subcat}}">{{ sub_cat.brand_subcat}}</a></li>
+      {% endif %}
+      {% endfor %}
+      <li class="nav-item mt-3"><a class="" href="">Sizes</a>
+      </li>
+      <div id="sizes" class="row ms-2 g-1" style="max-width: 205px;">
+
+        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">1</button></div>
+        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">2</button></div>
+        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">3</button></div>
+        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">4</button></div>
+        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">5</button></div>
+        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">6</button></div>
+        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">7</button></div>
+        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">8</button></div>
+        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">9</button></div>
+        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">10</button></div>
+        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">11</button></div>
+        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">12</button></div>
+        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">13</button></div>
+        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">14</button></div>
+        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">15</button></div>
+        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">16</button></div>
+        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">17</button></div>
+        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">18</button></div>
+        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">19</button></div>
+        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">20</button></div>
+       </div>
+      <li  class="nav-item mt-3"><a class="" href="">Size Type</a>
+        <ul id="sizetype" class="p-2">
+          <li><input type="checkbox" name="" id="">Men</li>
+          <li><input type="checkbox" name="" id="">Women</li>
+          <li><input type="checkbox" name="" id="">Child</li>
+          <li><input type="checkbox" name="" id="">Infant</li>
+          <li><input type="checkbox" name="" id="">Toddler</li>
+        </ul>
+       
+      </li>
+     </ul>
+    
+    
+     
+    
 </aside>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    const links = document.querySelectorAll('#sideNav li')
+  links.forEach(function(link){
+    link.addEventListener('click', () => link.style.color = '#bb3c5a' )
+    console.log(link)
+    
+  })
+  })
+ 
+  
+</script>

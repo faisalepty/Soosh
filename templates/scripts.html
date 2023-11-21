@@ -1,0 +1,37 @@
+
+{% load static %}
+<script>
+    var currentSectionIndex = 0;
+    var sections = document.querySelectorAll('section');
+
+    function showNextSection() {
+        sections[currentSectionIndex].classList.add('d-none'); // Hide the current section
+        currentSectionIndex = (currentSectionIndex + 1) % sections.length; // Move to the next section
+        sections[currentSectionIndex].classList.remove('d-none'); // Show the next section
+    }
+
+    // Initially, show the first section
+    sections[currentSectionIndex].classList.remove('d-none');
+
+    const brandname = document.querySelector('#brandname');
+    const searchbtn = document.querySelector('#searchbtn');
+    const searchbtn1 = document.querySelector('#searchbtn1');
+    function hideBrand() {
+        if(brandname.style.display ===  'block'){
+            brandname.style.display = "none"
+            searchbtn1.style.display = "block"
+            searchbtn.style.display = "none"
+        }
+        else{
+            brandname.style.display = "block"
+            searchbtn1.style.display = "none"
+            searchbtn.style.display = "block"
+        }
+        
+    }
+</script>
+
+
+
+<script src="{%static 'js/bootstrap.bundle.min.js' %}"></script>
+<script src="{%static 'js/bootstrap.bundle.min.js.map' %}"></script>
