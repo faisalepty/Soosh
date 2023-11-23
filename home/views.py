@@ -1,7 +1,8 @@
 from django.shortcuts import render
+from django.http import JsonResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.db.models import Q
-from .models import Product, Category, Subcategory
+from .models import Product, Category, Subcategory, Cart
 
 # Create your views here.
 
@@ -65,5 +66,18 @@ def ShowElectronics(request):
 
     context = {'products': filter_multiples, 'categories': categories, 'Filteredelectronics': Filteredelectronics, 'q': q, 'e': e}
     return render(request, 'electronics.html', context)
+
+def AddToCart(request, pk):
+    product = Product.objects.get(id=pk)
+    cartItems = Cart.objects.all()
+    cartItemsList = [cartItem.product.id for cartItem in cartItems]
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        if pk not in cartItemsList:
+        
+            newCartItem = Cart(product=product, user=request.user)
+            newCartItem.save()
+            return JsonResponse({'data': cartItemsList})
+        else:
+            return JsonResponse({'error': 'Product is already in the cart'}, status=400)
 
 
