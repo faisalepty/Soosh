@@ -12,7 +12,10 @@ def Signup(request):
         if form.is_valid():
             form.save()
             messages.success(request, f'Account successfuly created for {request.user}')
-            return redirect('Home')
+            user = authenticate(username=request.POST.get('username'), password=request.POST.get('password'))
+            if user != None:
+                login(request, user)
+                return redirect('Home')
 
     context = {'form': form}
     return render(request, 'signup.html', context)

@@ -38,7 +38,7 @@
                       <div class="col-lg-3 col-md-4 col-6 my-1 d-flex align-items-strech">
                           <div class="card" id="item" style="width:90%;">
                               <img height="100%" src="{{ product.pic.url }}" alt="" class="card-image-top">
-                             <a href="" class="addToCartIcon" id="{{ product.id }}"> <i class="bi bi-cart4"></i></a>
+                             <a href="" class="addToCartIcon" id="{{ product.id }}"> <i class="bi bi-cart4" style="font-size: 2em;"></i></a>
                               <div class="card-body d-flex-row align-items-center justify-content-center mb-0">
                                 <div>  
                                 <p class="card-text">
@@ -56,33 +56,4 @@
             </div>      
         </div>
     </section>
-    <script>
-      const addToCartIcon = document.querySelectorAll('.addToCartIcon');
-      const cartCount = document.getElementById('cartCount');
-      addToCartIcon.forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-          e.preventDefault()
-            const itemId = btn.getAttribute('id');
-        $.ajax({
-              type: 'GET',
-              url: `/addToCart/${itemId}/`,
-              headers: {'X-Requested-With': 'XMLHttpRequest'}, 
-              success: function (res) {
-                if (!res.err){
-                  let x = parseInt(document.getElementById('cartCount').innerText);
-                  x++;
-                  cartCount.innerText = x
-                  console.log(res)
-                }
-                 
-              },
-              error: (res) => (
-                console.log('res')
-              )
-          })
-            
-        })
-      })
-    
-    </script>
 {% endblock content %}

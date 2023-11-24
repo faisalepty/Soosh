@@ -48,7 +48,12 @@ class Product(models.Model):
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1, null=True, blank=True)
     date_modified = models.DateTimeField(auto_now_add=True)
+
+    def Total(self):
+        return self.product.price * self.quantity
+
 
     
 

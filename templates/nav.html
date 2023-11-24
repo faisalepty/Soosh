@@ -1,8 +1,11 @@
 {% load static %}
+<style>
+
+</style>
 
 <header>         
     <nav id="Nav" class="navbar fixed-top navbar-light bg-light">
-      <div class="container-fluid">
+      <div id="navBar" class="container-fluid">
         
          
           <!-- navbar toggler button -->
@@ -31,9 +34,9 @@
 
           </div>
            <div class="d-flex">
-            
+            <!-- items in cart counter -->
           <div>
-             <i id='cartIcon' class="bi bi-cart4 d-md-none"></i><span class="d-md-none" id="cartCount">12</span>
+             <a href="{% url 'Cart' %}"><i id='cartIcon' class="cartIcon bi bi-cart4 d-md-none"></i><span class="cartCount d-md-none" id="cartCount">{{ cartcount }}</span></a>
           </div>
             <button onclick="hideBrand()" id="searchbtn" class="btn-search d-md-none bg-light" type="button" data-bs-target="#searchbar" data-bs-toggle="collapse"><i class="bi bi-search"></i></button>
             <button onclick="hideBrand()" id="searchbtn1" class="btn-close d-md-none bg-light" type="button" data-bs-target="#searchbar" data-bs-toggle="collapse" style="display: none;"></button>
@@ -64,9 +67,9 @@
                      </li> 
 
                     {% endif %}
-                    <li>
-                      <i class="bi bi-cart4"></i>
-                    </li>               
+                    <div>
+                      <a href="{% url 'Cart' %}"><i id='cartIcon' class="cartIcon bi bi-cart4"></i><span class="cartCount" id="cartCount">{{ cartcount }}</span></a>
+                   </div>               
                 </ul>
           </div>
         <!-- off canvas  -->

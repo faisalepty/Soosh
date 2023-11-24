@@ -1,0 +1,125 @@
+.Qdecrease{
+    border: 1px solid rgb(178, 177, 177);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-right: none;
+    width: 25px;
+    padding: 5px;
+    background-color: white;
+
+}
+.Qincrease{
+    border: 1px solid rgb(178, 177, 177);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-left: none;
+    width: 25px;
+    padding: 5px;
+    background-color: white;
+}
+.smscreennav1{
+    position: absolute;
+    
+}
+.smscreennav .smcartPrice{
+    background-color: rgb(178, 177, 177) ;
+    font-weight: bold;
+    padding: 0px 10px;
+    width: fit-content;
+}
+.Qinput{
+    border: none;
+    border-top: 1px solid rgb(178, 177, 177);
+    border-bottom: 1px solid rgb(178, 177, 177);
+    
+}
+.Qinputsm1{
+    width: 50px;
+    margin-left: 15px;
+}
+
+tr{
+    border-bottom: 1px solid rgb(178, 177, 177);
+}
+.smscreennav1 .Qinputsm{
+    position: relative;
+    left: -27%;
+    bottom: 0px;
+}
+#total{
+    margin-left: 5px;
+}
+
+.cartimg{
+
+    max-height: 100px;
+    max-width: 100px;
+    min-width: 70px;
+    min-height: 70px;
+
+}
+.priceTotal{
+    width: 45%;
+    margin-right: 10%;
+    margin-top: 25px;
+
+}
+.priceTotal hr{
+    margin: 0;
+}
+.prices{
+    display: flex;
+    justify-content: space-between;
+    
+}
+#cartItem:hover{
+    cursor: pointer;
+}
+.prices p{
+    margin: 10px 0;
+    font-weight: bolder;
+}
+.priceTotal button{
+   width: 100%;
+}
+input::-webkit-inner-spin-button, input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+@media (max-width: 581px){
+    .cartPrice{
+        display: none;
+    }
+    .quantity{
+        display: none;
+    }
+    .quantityinp{
+        display: none;
+    }
+    .totalPrice{
+        position: absolute;
+        bottom: 0px;
+    }
+    .cartTable{
+        width: 95%; 
+        margin: auto;
+    }
+    .priceTotal{
+        
+        width: 90%;
+        margin-right: 5%;
+        margin-top: 25px;
+    
+    }
+    
+}
+
+@media (min-width: 581px){
+    .smscreennav{
+        display: none;
+    }
+    .cartTable{
+        width: 80%; 
+        margin: auto;
+    }
+    
+}

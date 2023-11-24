@@ -6,4 +6,6 @@ urlpatterns = [
     path('sneakers/', views.ShowSneakers, name='sneakers'),
     path('electronics/', views.ShowElectronics, name='electronics'),
     path('addToCart/<int:pk>/', views.AddToCart, name='addToCart'),
-]
+    path('cart/', views.ShowCartPage, name='Cart'),
+    path('addIcount/<int:pk>/', views.ShowCartPage, name='addIcount'),
+    ]

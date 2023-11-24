@@ -33,28 +33,14 @@
       <li class="nav-item mt-3"><a class="" href="">Sizes</a>
       </li>
       <div id="sizes" class="row ms-2 g-1" style="max-width: 205px;">
-
-        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">1</button></div>
-        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">2</button></div>
-        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">3</button></div>
-        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">4</button></div>
-        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">5</button></div>
-        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">6</button></div>
-        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">7</button></div>
-        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">8</button></div>
-        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">9</button></div>
-        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">10</button></div>
-        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">11</button></div>
-        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">12</button></div>
-        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">13</button></div>
-        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">14</button></div>
-        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">15</button></div>
-        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">16</button></div>
-        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">17</button></div>
-        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">18</button></div>
-        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">19</button></div>
-        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">20</button></div>
-       </div>
+        {% for i in "x"|ljust:20 %}
+        {% if forloop.counter in sizeVariations %}
+        <div class="col-3"><button class="btn btn-outline-dark" style="width: 100%;">{{ forloop.counter }}</button></div>
+        {% else %}
+        <div class="col-3"><button class="btn btn-dark disabled" style="width: 100%;">{{ forloop.counter }}</button></div>
+        {% endif %}
+        {% endfor %}
+     </div>
       <li  class="nav-item mt-3"><a class="" href="">Size Type</a>
         <ul id="sizetype" class="p-2">
           <li><input type="checkbox" name="" id="">Men</li>

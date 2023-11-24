@@ -16,22 +16,27 @@
     const brandname = document.querySelector('#brandname');
     const searchbtn = document.querySelector('#searchbtn');
     const searchbtn1 = document.querySelector('#searchbtn1');
+    const cartIcon = document.getElementById('cartIcon').parentElement;
     function hideBrand() {
         if(brandname.style.display ===  'block'){
             brandname.style.display = "none"
             searchbtn1.style.display = "block"
             searchbtn.style.display = "none"
+            cartIcon.style.display = "none"
         }
         else{
             brandname.style.display = "block"
             searchbtn1.style.display = "none"
             searchbtn.style.display = "block"
+            cartIcon.style.display = "block"
+            
+
         }
         
     }
 </script>
 
-
-
+<script src="{% static 'js/cartpage.js' %}"></script>
+<script src="{% static 'js/addToCart.js' %}"></script>
 <script src="{%static 'js/bootstrap.bundle.min.js' %}"></script>
 <script src="{%static 'js/bootstrap.bundle.min.js.map' %}"></script>

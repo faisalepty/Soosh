@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content%}
+
+<div id="" class="" >
+    <h1 class="text-center"  style="margin-top: 70px;">CART</h1>
+    <div>
+        <table class="cartTable">
+          <tr>
+            <th>ITEM</th>
+            <th></th>
+            <th class="cartPrice">PRICE</th>
+            <th class="quantity">QUANTITY</th>
+            <th>TOTAL</th>
+          </tr>
+          {% for item in  CartItems%}
+         <tr style="position: relative;">
+          <td><img width="100%" class="cartimg" src="{{ item.product.pic.url }}" alt=""></td>
+          <td>
+            <p style="width: fit-content; width: 150px;">{{ item.product.name }}</p>
+            <span class="smscreennav">
+              <p class="smcartPrice">${{ item.product.price }}</p>
+              <div class="Qinputsm1 d-flex justify-content-center">
+                <button class="Qdecrease">-</button>
+                <input id="{{ item.product.id }}" style="width: 40px; text-align: center;" class="Qinput text-center" value="{{item.quantity}}" type="number" max="100" min="1">
+                <button class="Qincrease">+</button>
+            </span>
+          </td>
+          <td class="cartPrice">${{ item.product.price }}</td>
+          <td class="quantity">
+            <div class="Qinputsm d-flex justify-content-center">
+            <button class="Qdecrease">-</button>
+            <input id="{{ item.product.id }}" style="width: 40px; text-align: center;" class="Qinput text-center" value="{{item.quantity}}" type="number" max="100" min="1">
+            <button class="Qincrease">+</button>
+           </div> 
+          </td>
+          <td class="totalPrice">${{ item.Total }}</td>
+      
+         </tr>
+         {% endfor %}
+        </table>
+      </div>
+      <div class="priceTotal ms-auto">
+        <div class="prices">
+          <p>Subtotal:</p>
+          <p id="subtotal">${{grandTotal}}</p>
+        </div>
+        <hr>
+        <div class="prices">
+          <p>Shipping:</p>
+          <p>$0.0</p>
+        </div>
+        <hr>
+        <div class="prices">
+          <p>Grand Total:</p>
+          <p id="grandTotal" class="lead">${{grandTotal}}</p>
+        </div>
+        <button class="btn btn-dark w-5">PROCEED TO CHECKOUT</button>
+      </div>
+    
+
+
+
+</div>
+
+<script>
+  const showCase = document.getElementById('sec1')
+  showCase.style.display = 'none'
+</script>
+
+
+
+{% endblock content %}
